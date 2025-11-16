@@ -1,3 +1,13 @@
+/* Warning Banners */
+.warning-banner{position:fixed;top:70px;left:1rem;right:1rem;padding:1rem 1.5rem;border-radius:8px;display:flex;align-items:center;gap:1rem;font-size:0.95rem;z-index:10;backdrop-filter:blur(8px);border:2px solid;animation:slide-down 0.5s ease-out;max-width:600px;margin:0 auto}
+.warning-banner.construction{background:linear-gradient(90deg, rgba(255,193,7,0.15), rgba(255,152,0,0.1));border-color:rgba(255,193,7,0.4);top:70px}
+.warning-banner.issue{background:linear-gradient(90deg, rgba(244,67,54,0.15), rgba(255,87,34,0.1));border-color:rgba(244,67,54,0.4);top:130px}
+.warning-icon{font-size:1.4rem;flex-shrink:0}
+.warning-text{color:#fff;font-weight:500;text-shadow:0 1px 4px rgba(0,0,0,0.3)}
+.warning-text strong{color:#ffeb3b;letter-spacing:0.5px}
+.warning-banner.issue .warning-text strong{color:#ff9a76}
+@keyframes slide-down{from{transform:translateY(-20px);opacity:0}to{transform:translateY(0);opacity:1}}
+
  .luck-root{font-family:inherit;background:linear-gradient(135deg, #0a0e27 0%, #1a0f35 20%, #2d1b4e 40%, #1f0f3a 60%, #1a0f35 80%, #0a0e27 100%);min-height:100vh;position:relative;overflow:hidden}
 .luck-root::before{content:'';position:absolute;inset:0;background:
   radial-gradient(circle at 20% 30%, rgba(255,215,0,0.08) 0%, transparent 25%),

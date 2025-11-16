@@ -5,6 +5,16 @@ import './try-your-luck.css';
 export default function TryYourLuck(){
   return (
     <main className="luck-root">
+      {/* Warning Banners */}
+      <div className="warning-banner construction">
+        <span className="warning-icon">⚠️</span>
+        <span className="warning-text"><strong>Site Under Construction:</strong> This game is in beta. Some features may not work as expected.</span>
+      </div>
+      <div className="warning-banner issue">
+        <span className="warning-icon">🔧</span>
+        <span className="warning-text"><strong>Known Issue:</strong> Wheel rotation and outcome mapping may have occasional misalignment. We're working on it!</span>
+      </div>
+
       {/* Decorative corner elements */}
       <div className="corner-accent top-left"></div>
       <div className="corner-accent top-right"></div>
