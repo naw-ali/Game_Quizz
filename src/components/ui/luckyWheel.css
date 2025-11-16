@@ -5,7 +5,7 @@
 /* segment wrapper used only for label positioning */
 .wheel-segment{position:absolute;inset:0;pointer-events:none}
 .wheel-segment::before{content:'';position:absolute;left:50%;top:50%;width:3px;height:50%;background:linear-gradient(to top, rgba(0,0,0,0.5), rgba(255,255,255,0.2));transform-origin:top center;transform:translateX(-50%) rotate(0deg)}
-.seg-label{position:absolute;left:50%;top:50%;transform:translate(-50%, -100px);display:inline-block;color:#ffeb3b;font-weight:900;font-size:28px;letter-spacing:0.8px;text-shadow:0 0 20px rgba(255,235,59,0.4), 0 4px 12px rgba(0,0,0,0.6)}
+.seg-label{position:absolute;display:inline-block;color:#ffeb3b;font-weight:900;font-size:28px;letter-spacing:0.8px;text-shadow:0 0 20px rgba(255,235,59,0.4), 0 4px 12px rgba(0,0,0,0.6);z-index:8;transform:translate(-50%,-50%) rotate(calc(0deg - var(--rotation)));pointer-events:none}
 /* 4-color wheel - vibrant and popping */
 .wheel{background: conic-gradient(
   linear-gradient(180deg,#00d9ff,#00b8d4) 0deg 90deg,

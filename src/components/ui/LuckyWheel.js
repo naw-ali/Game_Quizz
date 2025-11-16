@@ -90,20 +90,40 @@ export default function LuckyWheel(){
         <div className="wheel-hub" aria-hidden="true"></div>
         
         {/* Render segments in order: segment 0 at 0°, segment 1 at 90°, segment 2 at 180°, segment 3 at 270° */}
-        {SEGMENTS.map((value, idx) => (
-          <div
-            key={value}
-            className="wheel-segment"
-            style={{ transform: `rotate(${idx * SEGMENT_DEGREE}deg)` }}
-          >
+        {SEGMENTS.map((value, idx) => {
+          // segment start angle (0, 90, 180, 270)
+          const startAngle = idx * SEGMENT_DEGREE;
+          return (
+            <div
+              key={`seg-${value}`}
+              className="wheel-segment"
+              style={{ transform: `rotate(${startAngle}deg)` }}
+            />
+          );
+        })}
+
+        {/* Render labels as absolute children of the wheel so their positions don't get rotated by segment containers */}
+        {SEGMENTS.map((value, idx) => {
+          const startAngle = idx * SEGMENT_DEGREE;
+          const centerAngle = startAngle + (SEGMENT_DEGREE / 2);
+          const wheelSize = 420;
+          const cx = wheelSize / 2;
+          const cy = wheelSize / 2;
+          const radius = 150; // tuned distance from center to place labels (px)
+          const rad = (centerAngle) * (Math.PI / 180);
+          const x = cx + radius * Math.sin(rad);
+          const y = cy - radius * Math.cos(rad);
+
+          return (
             <span
+              key={`label-${value}`}
               className="seg-label"
-              style={{ transform: `rotate(${-(idx * SEGMENT_DEGREE)}deg)` }}
+              style={{ left: `${x}px`, top: `${y}px` }}
             >
               {value}
             </span>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="pointer">
